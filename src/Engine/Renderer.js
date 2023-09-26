@@ -1,5 +1,5 @@
 import { RENDERER_DETAILS } from "../settings";
-import Vector2 from "./Vector2";
+import Vector2 from "./Geometry/Vector2";
 
 class Renderer {
   #canvasSize;

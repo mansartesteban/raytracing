@@ -1,9 +1,9 @@
-import Shape from "./Shape";
-import Vector3 from "./Vector3";
+import Shape from "@/Engine/Shape";
+import Vector3 from "@/Engine/Geometry/Vector3";
 
 class Sphere extends Shape {
-  constructor(origin, radius, material) {
-    super(material);
+  constructor(origin, radius, appearance) {
+    super(appearance);
     this.origin = origin;
     this.radius = radius;
   }

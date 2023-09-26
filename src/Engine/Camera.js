@@ -1,5 +1,5 @@
 import Ray from "./Ray";
-import Vector3 from "./Vector3";
+import Vector3 from "@/Engine/Geometry/Vector3";
 
 class Camera {
 

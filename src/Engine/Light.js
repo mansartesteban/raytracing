@@ -1,4 +1,4 @@
-import Vector3 from "./Vector3";
+import Vector3 from "@/Engine/Geometry/Vector3";
 
 class Light {
 
@@ -40,8 +40,8 @@ class Light {
         this.#brightness = brightness;
     }
 
-    computeLight(material, point, lightValue) {
-        return material.getColorAt(point).multiply(this.color).multiply(lightValue).multiply(this.brightness);
+    computeLight(appearance, point, lightValue) {
+        return appearance.getDiffuseColorAt(point).multiply(this.color).multiply(lightValue).multiply(this.brightness);
     }
 }
 
