@@ -1,3 +1,4 @@
+import { RENDERER_DETAILS } from "../settings";
 import Vector2 from "./Vector2";
 
 class Renderer {
@@ -7,14 +8,17 @@ class Renderer {
     this.#canvasSize = canvasSize;
   }
 
+  set canvasSize(canvasSize) {
+    this.#canvasSize = canvasSize;
+  }
+
   render(scene, callback) {
-    
-    const startTimer = new Date().valueOf();
+
     let sX = 0;
     let sY = 0;
     let pixel = null;
 
-    const steps = new Vector2(3, 3);
+    const steps = new Vector2(1 / RENDERER_DETAILS, 1 / RENDERER_DETAILS);
 
     for (let y = 0; y < this.#canvasSize.y / steps.y; y += steps.y) {
       for (let x = 0; x < this.#canvasSize.x / steps.x; x += steps.x) {
@@ -25,8 +29,6 @@ class Renderer {
       }
     }
 
-    const durationTimer = new Date().valueOf() - startTimer;
-    console.info(`Rendered in ${durationTimer / 1000} seconds`)
   }
 }
 

@@ -9,7 +9,8 @@ class Ray {
     const shortest = Math.min.apply(Math, distances);
     if (shortest === Infinity) return scene.background;
     const closest = scene.objects[distances.indexOf(shortest)];
-    return closest.color;
+    const point = this.origin.add(this.direction.multiply(shortest));
+    return closest.getColorAt(point, scene);
   }
 }
 

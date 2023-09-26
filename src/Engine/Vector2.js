@@ -8,7 +8,7 @@ class Vector2 {
   #y = 0;
   #length = 0;
   #squid = 0;
-  
+
   constructor(x, y) {
     this.#x = x;
     this.#y = y;
@@ -20,6 +20,14 @@ class Vector2 {
 
   get y() {
     return this.#y;
+  }
+
+  set x(x) {
+    this.#x = x;
+  }
+
+  set y(y) {
+    this.#y = y;
   }
 
   get length() {
@@ -86,7 +94,7 @@ class Vector2 {
   static from(origin) {
     return {
       to: target => target.subtract(origin)
-    }
+    };
   }
 
 }

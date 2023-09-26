@@ -11,7 +11,7 @@ class Vector3 {
   #length = null;
   #squid = null;
 
-  constructor(x, y, z) {
+  constructor(x = 0, y = 0, z = 0) {
     this.#x = x;
     this.#y = y;
     this.#z = z;
@@ -27,6 +27,18 @@ class Vector3 {
 
   get z() {
     return this.#z;
+  }
+
+  set x(x) {
+    this.#x = x;
+  }
+
+  set y(y) {
+    this.#y = y;
+  }
+
+  set z(z) {
+    this.#z = z;
   }
 
   get length() {
@@ -97,7 +109,7 @@ class Vector3 {
   static from(origin) {
     return {
       to: target => target.sub(origin)
-    }
+    };
   }
 
 }

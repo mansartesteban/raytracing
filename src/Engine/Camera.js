@@ -2,18 +2,18 @@ import Ray from "./Ray";
 import Vector3 from "./Vector3";
 
 class Camera {
-  
-  constructor(location, lookAt, width = 16/8, height = 9/8) {
-    this.location = location;
+
+  constructor(position, lookAt, width = 16 / 8, height = 9 / 8) {
+    this.position = position;
     this.lookAt = lookAt;
 
     // Avoid asymptote visual effects
-    if (this.location.x == this.lookAt.x && this.location.x == this.lookAt.z) {
-      this.location = this.location.add(new Vector3(0, 0, -.0000001));
+    if (this.position.x == this.lookAt.x && this.position.x == this.lookAt.z) {
+      this.position = this.position.add(new Vector3(0, 0, -.0000001));
     }
 
-    this.direction = Vector3.from(this.location).to(this.lookAt).normalize();
-    // this.direction = this.lookAt.add(this.location.invert()).normalize();
+    this.direction = Vector3.from(this.position).to(this.lookAt).normalize();
+    // this.direction = this.lookAt.add(this.position.invert()).normalize();
 
     this.right = Vector3.Y.cross(this.direction).normalize().multiply(width / 2);
     this.up = this.right.cross(this.direction).invert().normalize().multiply(height / 2);
@@ -22,7 +22,7 @@ class Camera {
   trace(scene, x, y) {
     const vx = this.right.multiply(x);
     const vy = this.up.multiply(y).invert();
-    const ray = new Ray(this.location, this.direction.add(vx).add(vy));
+    const ray = new Ray(this.position, this.direction.add(vx).add(vy));
     return ray.trace(scene);
   }
 
