@@ -7,6 +7,7 @@ class Finish {
         this.ambiant = options.ambiant ?? 0;
         this.diffuse = options.diffuse ?? 0.7;
         this.shiny = options.shiny ?? 0;
+        this.reflexion = options.reflexion ?? 0;
     }
 
     addHighlight(reflexion, light, lightVector) {

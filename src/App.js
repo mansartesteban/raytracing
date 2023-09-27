@@ -28,7 +28,7 @@ engine.init((ctx) => {
             8,
             new Appearance(
                 new BasicMaterial(Color.White),
-                new Finish({ ambient: .5, diffuse: .5, shiny: .5 })
+                new Finish({ ambient: 1, diffuse: 1, shiny: 1, reflexion: 1 })
             )
         ),
         new Sphere(
@@ -36,7 +36,7 @@ engine.init((ctx) => {
             2,
             new Appearance(
                 new BasicMaterial(Color.Yellow),
-                new Finish({ ambient: 0.0, diffuse: 1.0, shiny: 1.0 })
+                new Finish({ ambient: 0.0, diffuse: 1.0, shiny: 1.0, reflexion:.2 })
             )
         ),
         new Sphere(
@@ -44,7 +44,7 @@ engine.init((ctx) => {
             12,
             new Appearance(
                 new BasicMaterial(Color.Red),
-                new Finish({ ambient: 0.0, diffuse: .5, shiny: .8 })
+                new Finish({ ambient: 0.0, diffuse: .5, shiny: .8, reflexion: .5 })
             )
         ),
         new Sphere(
@@ -52,7 +52,7 @@ engine.init((ctx) => {
             1,
             new Appearance(
                 new BasicMaterial(Color.White),
-                new Finish({ ambient: 0.0, diffuse: 1.0, shiny: 1.0 })
+                new Finish({ ambient: 0.0, diffuse: 1.0, shiny: 1.0, reflexion: .7 })
             )
         ),
         new Sphere(
@@ -60,15 +60,15 @@ engine.init((ctx) => {
             3,
             new Appearance(
                 new BasicMaterial(Color.Green),
-                new Finish({ ambient: 0.0, diffuse: 1.0, shiny: 1.0 })
+                new Finish({ ambient: 0.0, diffuse: 1.0, shiny: 1.0, reflexion:.9 })
             )
         ),
         new Plane(
-            new Vector3(0, -50, 0),
+            new Vector3(0, -20, 0),
             Vector3.Y,
             new Appearance(
                 new BasicMaterial(Color.Cyan),
-                new Finish({ ambient: 0.0, diffuse: 1.0, shiny: 1.0 })
+                new Finish({ ambient: 0.0, diffuse: 1.0, shiny: 1.0, reflexion: .2 })
             )
         ),
         // new Box(

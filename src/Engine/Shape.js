@@ -37,10 +37,14 @@ class Shape {
     return inverse.add(normal.multiply(normal.dot(inverse)).add(incident).multiply(2));
   }
 
-  getColorAt(point, ray, scene) {
+  getColorAt(point, ray, scene, depth) {
     const normal = this.getNormalAt(point);
     let color = Color.Black;
     const reflexion = ray.reflect(normal);
+    
+    const reflect = this.appearance.reflect(point, reflexion, scene, depth)
+    color = color.add(reflect);
+
     scene.lights.forEach(light => {
       const v = Vector3.from(point).to(light.position);
       const lightValue = normal.dot(v.normalize());
