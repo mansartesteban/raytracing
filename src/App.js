@@ -23,46 +23,46 @@ engine.init((ctx) => {
     ctx.camera = new Camera(new Vector3(0, 5, -70), new Vector3(0, -.2, 1).normalize(), 1, 1);
 
     const objects = [
-        new Sphere(
-            new Vector3(-18, -4, 12),
-            8,
-            new Appearance(
-                new BasicMaterial(Color.White),
-                new Finish({ ambient: 1, diffuse: 1, shiny: 1, reflexion: 1 })
-            )
-        ),
-        new Sphere(
-            new Vector3(-3, 0, 0),
-            2,
-            new Appearance(
-                new BasicMaterial(Color.Yellow),
-                new Finish({ ambient: 0.0, diffuse: 1.0, shiny: 1.0, reflexion:.2 })
-            )
-        ),
-        new Sphere(
-            new Vector3(20, 0, 20),
-            12,
-            new Appearance(
-                new BasicMaterial(Color.Red),
-                new Finish({ ambient: 0.0, diffuse: .5, shiny: .8, reflexion: .5 })
-            )
-        ),
-        new Sphere(
-            new Vector3(2, -10, 2),
-            1,
-            new Appearance(
-                new BasicMaterial(Color.White),
-                new Finish({ ambient: 0.0, diffuse: 1.0, shiny: 1.0, reflexion: .7 })
-            )
-        ),
-        new Sphere(
-            new Vector3(4, 0, 30),
-            3,
-            new Appearance(
-                new BasicMaterial(Color.Green),
-                new Finish({ ambient: 0.0, diffuse: 1.0, shiny: 1.0, reflexion:.9 })
-            )
-        ),
+        // new Sphere(
+        //     new Vector3(-18, -4, 12),
+        //     8,
+        //     new Appearance(
+        //         new BasicMaterial(Color.White),
+        //         new Finish({ ambient: 1, diffuse: 1, shiny: .5, reflexion: .1 })
+        //     )
+        // ),
+        // new Sphere(
+        //     new Vector3(-3, 0, 0),
+        //     2,
+        //     new Appearance(
+        //         new BasicMaterial(Color.Yellow),
+        //         new Finish({ ambient: 0.0, diffuse: 1.0, shiny: 1.0, reflexion:.2 })
+        //     )
+        // ),
+        // new Sphere(
+        //     new Vector3(20, 0, 20),
+        //     12,
+        //     new Appearance(
+        //         new BasicMaterial(Color.Red),
+        //         new Finish({ ambient: 0.0, diffuse: .5, shiny: .8, reflexion: .5 })
+        //     )
+        // ),
+        // new Sphere(
+        //     new Vector3(2, -10, 2),
+        //     1,
+        //     new Appearance(
+        //         new BasicMaterial(Color.White),
+        //         new Finish({ ambient: 0.0, diffuse: 1.0, shiny: 1.0, reflexion: .7 })
+        //     )
+        // ),
+        // new Sphere(
+        //     new Vector3(4, 0, 30),
+        //     3,
+        //     new Appearance(
+        //         new BasicMaterial(Color.Green),
+        //         new Finish({ ambient: 0.0, diffuse: 1.0, shiny: 1.0, reflexion:.9 })
+        //     )
+        // ),
         new Plane(
             new Vector3(0, -20, 0),
             Vector3.Y,
@@ -80,6 +80,21 @@ engine.init((ctx) => {
         //     )
         // )
     ];
+
+    for (let i = -5; i < 5; i++) {
+        for (let j = -5; j < 5; j++) {
+
+            objects.push(new Sphere(
+                new Vector3(i*3, i*j, j*3),
+                1,
+                new Appearance(
+                    new BasicMaterial(Color.White),
+                    new Finish({ ambient: 1, diffuse: .5, shiny: .6, reflexion: .8 })
+                )
+            ),)
+
+        }
+    }
 
     const lights = [
         new Light(new Vector3(10, 5, 10).multiply(10), Color.White, 1),
@@ -120,10 +135,17 @@ TODO:
   - Spot
   - Ambiant
 - Occlusion ambiante
+- If an object is between a light and another object, make a shadow
+- Transparency
+- Skybox
+- Texture
+- Clouds
+- Animated (generate multiple img and save it to .mov/.mp4)
+- Anti-aliasing
+
+DONE:
 - Reflection
 - Difraction
-- If an object is between a light and another object, make a shadow
 - Shadows
-- Transparency
 - Glass effect/shiny
 */
